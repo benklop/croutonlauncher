@@ -2,7 +2,7 @@
 
 # Requirements
 
-Having the chromebook in developer mode and crouton executable on Downloads folder https://github.com/dnschneid/crouton
+Having the chromebook in developer mode and crouton executable in Downloads folder https://github.com/dnschneid/crouton
 
 I installed with: sudo sh ~/Downloads/crouton -t xiwi,extension,keyboard,cli-extra -r bionic
 
@@ -12,7 +12,7 @@ fork from https://github.com/jmaris/croutonlauncher
 
 ## Run Crouton apps as normal ChromeOS tabs on boot
 
-This was tested using crouton installed with this commands:
+This was tested using crouton installed with these commands:
 open a terminal with ctrl + alt + t
 ```
 shell
@@ -21,7 +21,7 @@ sudo sh ~/Downloads/crouton -t xiwi,keyboard,extension,cli-extra,audio -r bionic
 
 ## Install Menu:
 
-0.enter to the chroot
+0. Enter the chroot
 ```
 sudo enter-chroot
 ```
@@ -44,10 +44,18 @@ sudo chmod 755 /opt/croutonlauncher
 /opt/croutonlauncher/main.py
 ```
 
-6. open http://localhost:8000 or launch the chrome extension.
-I Recomend to place the extension pinned to the menu and configure as not a tab.
+6. Open with chrome http://localhost:8000 , the menu should be visible as a website.
 
-If you just want to launch it from shell and not autostart the menu,the command to launch from shell would be
+7. Instal the extension
+First put it in the downloads folder with the command:
+```
+cp /opt/croutonlauncher/CroutonLauncher-Chrome.crx  ~/Downloads/
+```
+Then open the 3 dots menu - more tools - extensions , check developer mode is turned on and drag the crx file from Downloads the the extesions menu.
+
+I recommend placing the extension pinned to the menu and configure as not a tab.
+
+If you just want to launch the server from shell and not autostart the menu, the command to launch from shell would be
 ```
 sudo enter-chroot /opt/croutonlauncher/main.py
 ```
@@ -83,4 +91,4 @@ sudo cp ~/Downloads/autostart/init/mnt-crouton.conf /etc/init
 ```
 Now you can delete Downloads/autostart
 
-6. restart and profit from http://localhost:8000 or crouton extension
+6. restart and profit from http://localhost:8000 or crouton launcher extension
