@@ -47,10 +47,6 @@ class Apps:
 			executable = entry.getExec().split('%',1)[0]
 			added = executable in executables or name in names
 			try:
-				isTerminal = entry.content['Desktop Entry']['Terminal'] == 'true'
-			except:
-				isTerminal = False
-			try:
 				nodisplay = entry.content['Desktop Entry']['NoDisplay'] == 'true'
 			except:
 				nodisplay = False
@@ -61,7 +57,6 @@ class Apps:
 				fobiden_cat = False
 			if None != iconPath and bool(re.search("png$|svg$",iconPath)) and \
 					not bool(re.search("sbin|pkexec|^none", entry.getExec())) and \
-					not isTerminal and \
 					not nodisplay and not added and not fobiden_cat:
 				self.action[str(id)] = {'Name':name,
 									  'Icon':'system' + iconPath,
